@@ -9,9 +9,10 @@
             _filePath = filePath;
         }
 
-        public LoadedConversations Load()
+        public bool Load(out LoadedConversations loadedConversations)
         {
             // TODO: open and read from file, convert to correct instances.
+            // Should first initialize all messages, then conversationItems, then conversationSteps.
             throw new System.NotImplementedException();
         }
     }

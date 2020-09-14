@@ -1,4 +1,5 @@
-﻿using DialogueEngine.Messages.Providers;
+﻿using DialogueEngine.Conversation.ConversationItemProviders;
+using DialogueEngine.Messages.Providers;
 
 namespace DialogueEngine.Conversation
 {
@@ -6,6 +7,6 @@ namespace DialogueEngine.Conversation
     {
         public readonly int Id;
         public readonly IMessageProvider MessageProvider;
-        
+        public readonly IConversationItemProvider ConversationItemProvider;
     }
 }
