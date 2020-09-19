@@ -16,5 +16,10 @@
         {
             throw new System.NotImplementedException();
         }
+
+        public string[] GetLabels()
+        {
+            return _labels;
+        }
     }
 }

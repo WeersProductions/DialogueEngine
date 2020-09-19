@@ -22,8 +22,7 @@ namespace DialogueEngine.Loading
             _filePath = filePath;
         }
 
-        // TODO: unit tests!
-        private ConversationItem CreateConversationItem(JSONConversationItem jsonConversationItem, Dictionary<int, Message> messages)
+        public static ConversationItem CreateConversationItem(JSONConversationItem jsonConversationItem, Dictionary<int, Message> messages)
         {
             IMessageProvider messageProvider;
             switch (jsonConversationItem.MessageType)
@@ -42,7 +41,7 @@ namespace DialogueEngine.Loading
                     messageProvider = new RandomMessageProvider(selectedMessages.ToArray());
                     break;
                 }
-                case "default":
+                case "simple":
                 {
                     Message message = null;
                     foreach (var messageId in jsonConversationItem.MessageIds)
@@ -65,11 +64,11 @@ namespace DialogueEngine.Loading
             IConversationItemProvider conversationItemProvider;
             switch (jsonConversationItem.ConversationType)
             {
-                case "MultipleChoice":
+                case "multipleChoice":
                     var labels = (jsonConversationItem.ConversationData as JSONCDMultipleChoice)?.Labels;
                     conversationItemProvider = new MultipleChoiceConversationItemProvider(labels);
                     break;
-                case "Simple":
+                case "simple":
                     conversationItemProvider = new SimpleConversationItemProvider();
                     break;
                 default:
@@ -80,7 +79,12 @@ namespace DialogueEngine.Loading
             return new ConversationItem(jsonConversationItem.Id, messageProvider, conversationItemProvider);
         }
 
-        private LoadedConversations CreateLoadedConversations(JSONContainer jsonContainer)
+        /// <summary>
+        /// TODO: unit test!
+        /// </summary>
+        /// <param name="jsonContainer"></param>
+        /// <returns></returns>
+        public static LoadedConversations CreateLoadedConversations(JSONContainer jsonContainer)
         {
             Dictionary<int, Message> messages = new Dictionary<int, Message>(jsonContainer.Messages.Length);
             foreach (var jsonMessage in jsonContainer.Messages)
@@ -115,6 +119,10 @@ namespace DialogueEngine.Loading
             return new LoadedConversations(conversationSteps);
         }
         
+        /// <summary>
+        /// TODO: unit test!
+        /// </summary>
+        /// <returns></returns>
         public async Task<LoadResult<LoadedConversations>> Load()
         {
             LoadedConversations loadedConversations;
