@@ -26,11 +26,13 @@ namespace DialogueEngine
 
         public bool Load()
         {
-            bool success = _conversationsLoader.Load(out var loadedConversations);
-            _loadedConversations = loadedConversations;
+            var loadResult = _conversationsLoader.Load();
+            loadResult.Wait();
+            var result = loadResult.Result;
+            _loadedConversations = result.Result;
             _loaded = true;
-            
-            return success;
+
+            return result.Success;
         }
 
         /// <summary>
