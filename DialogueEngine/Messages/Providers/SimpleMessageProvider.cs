@@ -16,5 +16,23 @@
         {
             return _message;
         }
+
+        protected bool Equals(SimpleMessageProvider other)
+        {
+            return Equals(_message, other._message);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((SimpleMessageProvider) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (_message != null ? _message.GetHashCode() : 0);
+        }
     }
 }

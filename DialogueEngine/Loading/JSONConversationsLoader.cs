@@ -101,7 +101,12 @@ namespace DialogueEngine.Loading
             Dictionary<int, ConversationStep> conversationSteps = new Dictionary<int, ConversationStep>(jsonContainer.ConversationSteps.Length);
             foreach (var jsonConversationStep in jsonContainer.ConversationSteps)
             {
-                conversationSteps.Add(jsonConversationStep.Id, new ConversationStep(jsonConversationStep.Id, conversationItems[jsonConversationStep.ConversationItemId], new ConversationStep[jsonConversationStep.NextConversationStepIds.Length]));
+                conversationSteps.Add(
+                    jsonConversationStep.Id, 
+                    new ConversationStep(
+                        jsonConversationStep.Id,
+                        conversationItems[jsonConversationStep.ConversationItemId], 
+                        new ConversationStep[jsonConversationStep.NextConversationStepIds.Length]));
             }
 
             // Update the links to other conversationSteps.
