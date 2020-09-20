@@ -42,6 +42,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="DialogueEngineTests.cs" />
         <Compile Include="JSONConversationsLoaderTests.cs" />
         <Compile Include="ParsedMessageTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

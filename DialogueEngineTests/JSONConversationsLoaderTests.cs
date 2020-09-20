@@ -233,7 +233,6 @@ namespace DialogueEngineTests
                 }
             };
 
-
             var loadedConversations = JSONConversationsLoader.CreateLoadedConversations(input);
             Assert.NotNull(loadedConversations);
             Assert.AreEqual(2, loadedConversations.Conversations.Count);

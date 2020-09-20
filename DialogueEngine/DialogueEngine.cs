@@ -13,7 +13,9 @@ namespace DialogueEngine
         /// If true, the engine is loaded.
         /// </summary>
         private bool _loaded;
-        
+
+        public bool Loaded => _loaded;
+
         public DialogueEngine(IConversationsLoader conversationsLoader, bool loadImmediately = false)
         {
             _conversationsLoader = conversationsLoader;
@@ -52,7 +54,7 @@ namespace DialogueEngine
         {
             EnsureLoaded();
 
-            if (!_loadedConversations.Conversations.TryGetValue(conversationStepId, out var conversationStep))
+            if (_loadedConversations == null || !_loadedConversations.Conversations.TryGetValue(conversationStepId, out var conversationStep))
             {
                 return new ConversationElement();
             }

@@ -5,7 +5,7 @@
         public ConversationItemRenderInfo Render(ConversationStep[] steps)
         {
             // TODO: based on the first step, create this renderInfo.
-            throw new System.NotImplementedException();
+            return new ConversationItemRenderInfo();
         }
 
         protected bool Equals(SimpleConversationItemProvider other)
