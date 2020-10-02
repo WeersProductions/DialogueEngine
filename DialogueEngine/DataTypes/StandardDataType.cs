@@ -6,7 +6,8 @@ namespace DialogueEngine
     {
         ERROR,
         TYPEWRITER,
-        STYLE,
+        BOLD,
+        ITALICS,
         EMOJI
     }
 
@@ -14,7 +15,8 @@ namespace DialogueEngine
     {
         public const string ErrorValue = "error";
         public const string TypewriterValue = "typewriter";
-        public const string StyleValue = "style";
+        public const string BoldValue = "b";
+        public const string ItalicsValue = "i";
         public const string EmojiValue = "emoji";
         
         public static bool IsStandardDataType(string type, out StandardDataType standardDataType)
@@ -24,11 +26,14 @@ namespace DialogueEngine
                 case EmojiValue:
                     standardDataType = StandardDataType.EMOJI;
                     return true;
-                case StyleValue:
-                    standardDataType = StandardDataType.STYLE;
+                case BoldValue:
+                    standardDataType = StandardDataType.BOLD;
                     return true;
                 case TypewriterValue:
                     standardDataType = StandardDataType.TYPEWRITER;
+                    return true;
+                case ItalicsValue:
+                    standardDataType = StandardDataType.ITALICS;
                     return true;
                 default:
                     standardDataType = StandardDataType.ERROR;
@@ -44,10 +49,12 @@ namespace DialogueEngine
                     return ErrorValue;
                 case StandardDataType.TYPEWRITER:
                     return TypewriterValue;
-                case StandardDataType.STYLE:
-                    return StyleValue;
+                case StandardDataType.BOLD:
+                    return BoldValue;
                 case StandardDataType.EMOJI:
                     return EmojiValue;
+                case StandardDataType.ITALICS:
+                    return ItalicsValue;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(dataType), dataType, null);
             }

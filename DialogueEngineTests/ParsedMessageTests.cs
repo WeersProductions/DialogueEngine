@@ -44,12 +44,12 @@ namespace DialogueEngineTests
             var input = new Dictionary<string, StyleInfo[]>()
             {
                 {StandardDataTypeHelper.EmojiValue, new []{ StyleInfoExample1 }},
-                {StandardDataTypeHelper.StyleValue, new []{ StyleInfoExample2 }}
+                {StandardDataTypeHelper.BoldValue, new []{ StyleInfoExample2 }}
             };
             var expectedOutput = new Dictionary<StandardDataType, StyleInfo[]>()
             {
                 {StandardDataType.EMOJI, new []{ StyleInfoExample1 }},
-                {StandardDataType.STYLE, new []{ StyleInfoExample2 }}
+                {StandardDataType.BOLD, new []{ StyleInfoExample2 }}
             };
             var message = new ParsedMessage(input);
             
@@ -63,11 +63,11 @@ namespace DialogueEngineTests
             var input = new Dictionary<string, StyleInfo[]>()
             {
                 {"ImCustom!", new []{ StyleInfoExample1 }},
-                {StandardDataTypeHelper.StyleValue, new []{ StyleInfoExample2 }}
+                {StandardDataTypeHelper.BoldValue, new []{ StyleInfoExample2 }}
             };
             var expectedOutputDefault = new Dictionary<StandardDataType, StyleInfo[]>()
             {
-                {StandardDataType.STYLE, new []{ StyleInfoExample2 }}
+                {StandardDataType.BOLD, new []{ StyleInfoExample2 }}
             };
             var expectedOutputCustom = new Dictionary<string, StyleInfo[]>()
             {

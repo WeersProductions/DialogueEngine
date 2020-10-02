@@ -6,6 +6,11 @@ namespace DialogueEngine.Messages
     public readonly struct ParsedMessage
     {
         /// <summary>
+        /// The normal text.
+        /// </summary>
+        public readonly string Text;
+        
+        /// <summary>
         /// DecoratorType: 
         /// </summary>
         public readonly Dictionary<string, StyleInfo[]> CustomDecorators;
@@ -18,16 +23,19 @@ namespace DialogueEngine.Messages
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="text">The undecorated message</param>
         /// <param name="customDecorators"></param>
         /// <param name="defaultDecorators"></param>
-        public ParsedMessage(Dictionary<string, StyleInfo[]> customDecorators, Dictionary<StandardDataType, StyleInfo[]> defaultDecorators)
+        public ParsedMessage(string text, Dictionary<string, StyleInfo[]> customDecorators, Dictionary<StandardDataType, StyleInfo[]> defaultDecorators)
         {
             CustomDecorators = customDecorators;
             DefaultDecorators = defaultDecorators;
+            Text = text;
         }
 
-        public ParsedMessage(Dictionary<string, StyleInfo[]> decorators)
+        public ParsedMessage(string text, Dictionary<string, StyleInfo[]> decorators)
         {
+            Text = text;
             DefaultDecorators = new Dictionary<StandardDataType, StyleInfo[]>();
             CustomDecorators = new Dictionary<string, StyleInfo[]>();
             
@@ -43,6 +51,11 @@ namespace DialogueEngine.Messages
                     CustomDecorators.Add(decorator.Key, decorator.Value);
                 }
             }
+        }
+
+        public ParsedMessage(Dictionary<string, StyleInfo[]> decorators): this("", decorators)
+        {
+            
         }
     }
 }

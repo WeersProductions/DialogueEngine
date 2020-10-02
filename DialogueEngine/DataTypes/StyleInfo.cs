@@ -17,14 +17,15 @@ namespace DialogueEngine
         public readonly int Start;
         /// <summary>
         /// Till this character this style should be applied (excluded).
+        /// If this is an xml element that does not affect any characters (e.g. just data, "<npc/>"), this is the same value as <see cref="Start"/>.
         /// </summary>
         public readonly int End;
         /// <summary>
         /// Can be used to pass more arguments.
         /// </summary>
-        public readonly Dictionary<string, object> Arguments;
+        public readonly Dictionary<string, string> Arguments;
 
-        public StyleInfo(string fieldName, int start, int end, Dictionary<string, object> arguments = null)
+        public StyleInfo(string fieldName, int start, int end, Dictionary<string, string> arguments = null)
         {
             FieldName = fieldName;
             Start = start;

@@ -69,6 +69,7 @@
         <Compile Include="Messages\IMessageParser.cs" />
         <Compile Include="Messages\Message.cs" />
         <Compile Include="Messages\ParsedMessage.cs" />
+        <Compile Include="Messages\Parsers\XmlMessageParser.cs" />
         <Compile Include="Messages\Providers\IMessageProvider.cs" />
         <Compile Include="Messages\Providers\RandomMessageProvider.cs" />
         <Compile Include="Messages\Providers\SimpleMessageProvider.cs" />

@@ -1,4 +1,5 @@
-﻿using DialogueEngine.Messages;
+﻿using System.Threading.Tasks;
+using DialogueEngine.Messages;
 
 namespace DialogueEngine
 {
