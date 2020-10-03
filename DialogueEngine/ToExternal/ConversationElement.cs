@@ -1,4 +1,5 @@
 ﻿using DialogueEngine.Conversation;
+using DialogueEngine.Conversation.RenderInfos;
 using DialogueEngine.Messages;
 
 namespace DialogueEngine.ToExternal

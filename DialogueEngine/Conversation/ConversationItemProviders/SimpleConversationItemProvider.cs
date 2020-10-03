@@ -1,11 +1,12 @@
-﻿namespace DialogueEngine.Conversation.ConversationItemProviders
+﻿using DialogueEngine.Conversation.RenderInfos;
+
+namespace DialogueEngine.Conversation.ConversationItemProviders
 {
     public class SimpleConversationItemProvider: IConversationItemProvider
     {
         public ConversationItemRenderInfo Render(ConversationStep[] steps)
         {
-            // TODO: based on the first step, create this renderInfo.
-            return new ConversationItemRenderInfo();
+            return new SimpleConversationItemRenderInfo();
         }
 
         protected bool Equals(SimpleConversationItemProvider other)

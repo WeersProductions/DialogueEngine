@@ -1,4 +1,6 @@
-﻿namespace DialogueEngine.Conversation.ConversationItemProviders
+﻿using DialogueEngine.Conversation.RenderInfos;
+
+namespace DialogueEngine.Conversation.ConversationItemProviders
 {
     public class MultipleChoiceConversationItemProvider: IConversationItemProvider
     {
@@ -14,7 +16,7 @@
 
         public ConversationItemRenderInfo Render(ConversationStep[] steps)
         {
-            throw new System.NotImplementedException();
+            return new MultipleChoiceConversationItemRenderInfo(_labels);
         }
 
         public string[] GetLabels()

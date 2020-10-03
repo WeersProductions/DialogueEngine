@@ -50,8 +50,10 @@
         <Compile Include="Conversation\ConversationItemProviders\IConversationItemProvider.cs" />
         <Compile Include="Conversation\ConversationItemProviders\MultipleChoiceConversationItemProvider.cs" />
         <Compile Include="Conversation\ConversationItemProviders\SimpleConversationItemProvider.cs" />
-        <Compile Include="Conversation\ConversationItemRenderInfo.cs" />
         <Compile Include="Conversation\ConversationStep.cs" />
+        <Compile Include="Conversation\RenderInfos\ConversationItemRenderInfo.cs" />
+        <Compile Include="Conversation\RenderInfos\MultipleChoiceConversationItemRenderInfo.cs" />
+        <Compile Include="Conversation\RenderInfos\SimpleConversationItemRenderInfo.cs" />
         <Compile Include="DataTypes\StandardDataType.cs" />
         <Compile Include="DataTypes\StyleInfo.cs" />
         <Compile Include="DialogueEngine.cs" />
@@ -78,6 +80,9 @@
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Conversation\RenderInfos\readme.md" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
